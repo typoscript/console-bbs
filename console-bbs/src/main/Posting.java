@@ -8,4 +8,16 @@ public class Posting {
 		this.USER_UID = userUID;
 		this.content = content;
 	}
+	
+	public int getUserUID() {
+		return USER_UID;
+	}
+
+	public String getContent() {
+		return content;
+	}
+	
+	public void setContent(String content) {
+		this.content = content;
+	}
 }
