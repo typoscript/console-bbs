@@ -32,6 +32,11 @@ public class SystemManager {
 
 	}
 	
+	private String getInputString(String msg) {
+		System.out.print(msg + ": ");
+		return sc.next();
+	}
+	
 	private void printStartMenu() {
 		System.out.println("[1] 회원가입");
 		System.out.println("[2] 로그인");
