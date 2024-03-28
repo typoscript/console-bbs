@@ -1,7 +1,13 @@
 package main;
 
 public class User {
-	private final UID;
+	private final int UID;
 	private String id;
 	private String password;
+	
+	public User(int UID, String id, String password) {
+		this.UID = UID;
+		this.id = id;
+		this.password = password;
+	}
 }
