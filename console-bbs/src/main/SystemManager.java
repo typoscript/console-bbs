@@ -33,7 +33,12 @@ public class SystemManager {
 	}
 	
 	public void run() {
-
+		while (isRunning) {
+			printStartMenu();
+			int menu = getInputNumber("메뉴");
+			
+			runStartMenu(menu);
+		}
 	}
 	
 	private String getInputString(String msg) {
