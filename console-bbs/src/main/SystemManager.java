@@ -36,6 +36,16 @@ public class SystemManager {
 		System.out.print(msg + ": ");
 		return sc.next();
 	}
+
+	private int getInputNumber(String msg) {
+		while (true) {
+			String input = getInputString(msg);
+
+			try {
+				return Integer.parseInt(input);
+			} catch (Exception e) { }
+		}
+	}
 	
 	private void printStartMenu() {
 		System.out.println("[1] 회원가입");
