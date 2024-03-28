@@ -12,4 +12,8 @@ public class SystemManager {
 		this.board = new Board();
 		this.users = new HashSet<User>();
 	}
+	
+	public void run() {
+		
+	}
 }
