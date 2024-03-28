@@ -4,6 +4,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class SystemManager {
+	private final int EXIT = 0;
+
+	private final int ADD_USER = 1;
+	private final int LOG_IN = 2;
+
+	private final int LOG_OUT = 1;
+	private final int MANAGE_USER = 2;
+	private final int VIEW_POSTINGS = 3;
+
+	private final int DELETE_USER = 1;
+	private final int EDIT_USER = 2;
+	private final int GO_BACK = 3;
+
 	private int loggedInUserUID = -1;
 	private Board board;
 	private Set<User> users;
