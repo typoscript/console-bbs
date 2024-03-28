@@ -41,6 +41,20 @@ public class SystemManager {
 		}
 	}
 	
+	private void runStartMenu(int menu) {
+		switch (menu) {
+			case ADD_USER:
+				runAddUser();
+				break;
+			case LOG_IN:
+				runLogin();
+				break;
+			case EXIT:
+				isRunning = false;
+				break;
+		}
+	}
+	
 	private String getInputString(String msg) {
 		System.out.print(msg + ": ");
 		return sc.next();
