@@ -23,9 +23,13 @@ public class SystemManager {
 	private Board board;
 	private Set<User> users;
 	
+	private boolean isRunning;
+	
 	public SystemManager() {
 		this.board = new Board();
 		this.users = new HashSet<User>();
+		
+		isRunning = true;
 	}
 	
 	public void run() {
