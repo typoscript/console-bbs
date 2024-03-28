@@ -1,6 +1,7 @@
 package main;
 
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 public class SystemManager {
@@ -18,6 +19,7 @@ public class SystemManager {
 	private final int GO_BACK = 3;
 
 	private int loggedInUserUID = -1;
+	private Scanner sc = new Scanner(System.in);
 	private Board board;
 	private Set<User> users;
 	
@@ -27,7 +29,7 @@ public class SystemManager {
 	}
 	
 	public void run() {
-		
+
 	}
 	
 	private void printStartMenu() {
