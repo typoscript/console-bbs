@@ -96,7 +96,7 @@ public class SystemManager {
 					runPostingMenu();
 					break;
 				case Menu.ADMIN_MANAGE_USER:
-					shouldExit = runAdminManageUser();
+					runAdminManageUser();
 					break;
 				case Menu.EXIT:
 					isRunning = false;
