@@ -1,30 +1,20 @@
 package main;
 
 public class User {
-	private final int UID;
-	private String id;
+	private final String ID;
 	private String password;
 	
-	public User(int UID, String id, String password) {
-		this.UID = UID;
-		this.id = id;
+	public User(String id, String password) {
+		this.ID = id;
 		this.password = password;
 	}
 	
-	public int getUID() {
-		return UID;
-	}
-	
-	public String getId() {
-		return id;
+	public String getID() {
+		return ID;
 	}
 
 	public String getPassword() {
 		return password;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public void setPassword(String password) {
