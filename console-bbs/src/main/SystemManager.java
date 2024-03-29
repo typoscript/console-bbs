@@ -73,7 +73,7 @@ public class SystemManager {
 
 			switch (menu) {
 				case Menu.DELETE_USER:
-					shouldExit = userManager.deleteUser();
+					shouldExit = deleteUser();
 					break;
 				case Menu.EDIT_USER:
 					userManager.editUser();
@@ -87,6 +87,16 @@ public class SystemManager {
 	private void addUser() {
 		userManager.addUser();
 		System.out.println("회원가입 성공");
+	}
+
+	private boolean deleteUser() {
+		boolean isDeleted = userManager.deleteUser();
+		
+		if (!isDeleted)
+			return false;
+
+		System.out.println("회원탈퇴 성공");
+		return true;
 	}
 
 	private void loginUser() {
