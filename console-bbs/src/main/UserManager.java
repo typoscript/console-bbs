@@ -12,6 +12,10 @@ public class UserManager {
 	public static UserManager getInstance() {
 		return userManager;
 	}
+	
+	public User getUser(String id) {
+		return users.get(id);
+	}
 
 	public void addUser() {
 		String id = Input.getString("아이디");
