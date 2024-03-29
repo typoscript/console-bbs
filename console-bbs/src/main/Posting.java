@@ -16,7 +16,11 @@ public class Posting {
 		this.content = content;
 	}
 	
-	public int getUserID() {
+	public long getId() {
+		return ID;
+	}
+	
+	public int getUserId() {
 		return USER_ID;
 	}
 
