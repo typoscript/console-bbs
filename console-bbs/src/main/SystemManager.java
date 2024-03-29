@@ -37,6 +37,7 @@ public class SystemManager {
 				break;
 			case Menu.LOG_IN:
 				loginUser();
+				runMainMenu();
 				break;
 			case Menu.EXIT:
 				isRunning = false;
@@ -45,7 +46,9 @@ public class SystemManager {
 	}
 	
 	private void runMainMenu() {
-		while (isRunning) {
+		boolean shouldExit = false;
+
+		while (!shouldExit) {
 			Menu.printMainMenu();
 			
 			int menu = getInputNumber("메뉴");
@@ -53,6 +56,7 @@ public class SystemManager {
 			switch (menu) {
 				case Menu.LOG_OUT:
 					logoutUser();
+					shouldExit = true;
 					break;
 				case Menu.MANAGE_USER:
 					runUserMenu();
@@ -62,7 +66,7 @@ public class SystemManager {
 					break;
 				case Menu.EXIT:
 					isRunning = false;
-					break;
+					return;
 			}
 		}
 	}
@@ -106,12 +110,9 @@ public class SystemManager {
 		
 		System.out.println("로그인 성공");
 		loggedInUserId = id;
-		
-		runMainMenu();
 	}
 	
 	private void logoutUser() {
-		isRunning = false;
 		loggedInUserId = null;
 		System.out.println("로그아웃 성공");
 	}
