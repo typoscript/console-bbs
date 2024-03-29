@@ -33,7 +33,7 @@ public class SystemManager {
 	private void runStartMenu(int menu) {
 		switch (menu) {
 			case Menu.ADD_USER:
-				runAddUser();
+				addUser();
 				break;
 			case Menu.LOG_IN:
 				runLogin();
@@ -44,7 +44,7 @@ public class SystemManager {
 		}
 	}
 	
-	private void runAddUser() {
+	private void addUser() {
 		String id = getInputString("아이디");
 		String password = getInputString("비밀번호");
 		
