@@ -93,7 +93,7 @@ public class SystemManager {
 	}
 	
 	private void runMainMenu() {
-		while (true) {
+		while (isRunning) {
 			printMainMenu();
 			
 			int menu = getInputNumber("메뉴");
