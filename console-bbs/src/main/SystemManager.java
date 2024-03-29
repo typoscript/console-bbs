@@ -244,10 +244,8 @@ public class SystemManager {
 	}
 	
 	private void editPosting(Posting posting) {
-		User user = userManager.getUser(loggedInUserId);
-
-		if (!userManager.isAdminUser(user) && !posting.getUserId().equals(loggedInUserId)) {
-			System.out.println("다른 사람의 글 수정 불가");
+		if (!canModifyPosting(posting)) {
+			System.out.println("다른 사람의 글 삭제 불가");
 			return;
 		}
 
