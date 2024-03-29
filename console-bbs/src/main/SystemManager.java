@@ -147,6 +147,8 @@ public class SystemManager {
 		user.setPassword(password);
 		
 		userManager.setUser(user);
+
+		System.out.println("유저 편집 성공");
 	}
 
 
