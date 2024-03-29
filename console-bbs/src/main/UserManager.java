@@ -1,6 +1,8 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UserManager {
@@ -36,4 +38,11 @@ public class UserManager {
 	public void deleteUser(User user) {
 		users.remove(user.getId());
 	}	
+	
+	public void printUserAll() {
+		List<String> userIds = new ArrayList<String>(users.keySet());
+		
+		for (String id : userIds)
+			System.out.println(users.get(id));
+	}
 }
