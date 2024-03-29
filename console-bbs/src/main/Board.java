@@ -14,12 +14,22 @@ public class Board {
 	public boolean deletePosting(Posting posting) {
 		int index = getIndexOfPosting(posting);
 		
-		if (index >= 0) {
-			postings.remove(index);
-			return true;
-		}
+		if (index < 0)
+			return false;
 		
-		return false;
+		postings.remove(index);
+		return true;
+	}
+	
+	public boolean setPosting(Posting posting) {
+		int index = getIndexOfPosting(posting);
+		
+		if (index < 0)
+			return false;
+		
+		postings.set(index, posting);
+		
+		return true;
 	}
 	
 	private int getIndexOfPosting(Posting posting) {
