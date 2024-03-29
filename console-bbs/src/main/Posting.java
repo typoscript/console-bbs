@@ -1,12 +1,14 @@
 package main;
 
 public class Posting {
+	private final long ID;
 	private final int USER_ID;
 	private final String UPLOAD_DATE;
 	private String title;
 	private String content;
 	
 	public Posting(int userId, String title, String content) {
+		this.ID = System.currentTimeMillis();
 		this.USER_ID = userId;
 		this.UPLOAD_DATE = Date.getCurrentDate();
 
