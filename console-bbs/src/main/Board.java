@@ -50,7 +50,7 @@ public class Board {
 		return true;
 	}
 	
-	public boolean isValidIndex(int index) {
+	public boolean hasPosting(int index) {
 		return index >= 0 && index < postings.size();
 	}
 	
