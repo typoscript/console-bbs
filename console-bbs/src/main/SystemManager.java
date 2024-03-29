@@ -87,7 +87,7 @@ public class SystemManager {
 			
 			switch (menu) {
 				case Menu.LOG_OUT:
-					runLogout();
+					logoutUser();
 					break;
 				case Menu.MANAGE_USER:
 					runUserMenu();
@@ -102,7 +102,7 @@ public class SystemManager {
 		}
 	}
 	
-	private void runLogout() {
+	private void logoutUser() {
 		isRunning = false;
 		loggedInUserId = null;
 		System.out.println("로그아웃 성공");
@@ -116,10 +116,8 @@ public class SystemManager {
 
 			switch (menu) {
 				case Menu.DELETE_USER:
-					runLogout();
 					break;
 				case Menu.EDIT_USER:
-					runEditUser();
 					break;
 				case Menu.GO_BACK:
 					return;
