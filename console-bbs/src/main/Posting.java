@@ -6,10 +6,12 @@ public class Posting {
 	private String title;
 	private String content;
 	
-	public Posting(int userId, String content) {
+	public Posting(int userId, String title, String content) {
 		this.USER_ID = userId;
-		this.content = content;
 		this.UPLOAD_DATE = Date.getCurrentDate();
+
+		this.title = title;
+		this.content = content;
 	}
 	
 	public int getUserID() {
