@@ -92,6 +92,10 @@ public class SystemManager {
 		runMainMenu();
 	}
 	
+	private void runMainMenu() {
+		
+	}
+	
 	private String getInputString(String msg) {
 		System.out.print(msg + ": ");
 		return sc.next();
@@ -113,7 +117,7 @@ public class SystemManager {
 		System.out.println("[0] 종료");
 	}
 	
-	private void printUserMenu() {
+	private void printMainMenu() {
 		System.out.println("[1] 로그아웃");
 		System.out.println("[2] 계정 관리");
 		System.out.println("[3] 게시글 보기");
