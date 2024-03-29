@@ -112,7 +112,6 @@ public class SystemManager {
 					isRunning = false;
 					break;
 			}
-			
 		}
 	}
 	
@@ -120,6 +119,25 @@ public class SystemManager {
 		isRunning = false;
 		loggedInUserId = null;
 		System.out.println("로그아웃 성공");
+	}
+	
+	private void runUserMenu() {
+		while (true) {
+			printUserMenu();
+
+			int menu = getInputNumber("유저 메뉴");
+
+			switch (menu) {
+				case DELETE_USER:
+					runLogout();
+					break;
+				case EDIT_USER:
+					runEditUser();
+					break;
+				case GO_BACK:
+					return;
+			}
+		}
 	}
 	
 	private String getInputString(String msg) {
