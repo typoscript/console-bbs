@@ -76,7 +76,7 @@ public class SystemManager {
 					shouldExit = deleteUser();
 					break;
 				case Menu.EDIT_USER:
-					userManager.editUser();
+					editUser();
 					break;
 				case Menu.GO_BACK:
 					return;
@@ -97,6 +97,11 @@ public class SystemManager {
 
 		System.out.println("회원탈퇴 성공");
 		return true;
+	}
+
+	private void editUser() {
+		userManager.editUser();
+		System.out.println("정보 수정 완료");
 	}
 
 	private void loginUser() {
