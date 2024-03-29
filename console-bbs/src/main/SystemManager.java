@@ -93,7 +93,27 @@ public class SystemManager {
 	}
 	
 	private void runMainMenu() {
-		
+		while (true) {
+			printMainMenu();
+			
+			int menu = getInputNumber("메뉴");
+			
+			switch (menu) {
+				case LOG_OUT:
+					runLogout();
+					break;
+				case MANAGE_USER:
+					runManageUser();
+					break;
+				case VIEW_POSTINGS:
+					runViewPostings();
+					break;
+				case EXIT:
+					isRunning = false;
+					break;
+			}
+			
+		}
 	}
 	
 	private String getInputString(String msg) {
