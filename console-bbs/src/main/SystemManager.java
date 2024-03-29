@@ -156,4 +156,11 @@ public class SystemManager {
 		System.out.println("로그아웃 성공");
 	}
 
+	private void addPosting() {
+		String title = Input.getString("제목");
+		String content = Input.getString("내용");
+
+		board.addPosting(new Posting(loggedInUserId, title, content));
+	}
+	
 }
