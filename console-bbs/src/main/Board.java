@@ -33,12 +33,7 @@ public class Board {
 		return true;
 	}
 	
-	public boolean deletePosting(Posting posting) {
-		int index = getIndexOfPosting(posting);
-		
-		if (index < 0)
-			return false;
-		
+	public boolean deletePosting(int index) {
 		postings.remove(index);
 
 		return true;
