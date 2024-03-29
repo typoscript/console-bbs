@@ -8,13 +8,13 @@ import java.util.Set;
 public class SystemManager {
 	private String loggedInUserId = null;
 	private Board board;
-	private Map<String, User> users;
+	private UserManager userManager;
 	
 	private boolean isRunning;
 	
 	public SystemManager() {
-		this.board = new Board();
-		this.users = new HashMap<>();
+		board = new Board();
+		userManager = UserManager.getInstance();
 		
 		isRunning = true;
 	}
@@ -31,7 +31,7 @@ public class SystemManager {
 	private void runStartMenu(int menu) {
 		switch (menu) {
 			case Menu.ADD_USER:
-				addUser();
+				userManager.addUser();
 				break;
 			case Menu.LOG_IN:
 				loginUser();
@@ -78,10 +78,10 @@ public class SystemManager {
 
 			switch (menu) {
 				case Menu.DELETE_USER:
-					shouldExit = deleteUser();
+					shouldExit = userManager.deleteUser();
 					break;
 				case Menu.EDIT_USER:
-					editUser();
+					userManager.editUser();
 					break;
 				case Menu.GO_BACK:
 					return;
@@ -93,12 +93,12 @@ public class SystemManager {
 		String id = Input.getString("아이디");
 		String password = Input.getString("비밀번호");
 
-		if (!users.containsKey(id)) {
+		if (!userManager.hasId(id)) {
 			System.out.println("회원 아이디가 존재하지 않습니다");
 			return;
 		}
 		
-		User user = users.get(id);
+		User user = userManager.getUser(id);
 		
 		if (!user.getPassword().equals(password)) {
 			System.out.println("비밀번호가 틀립니다");
@@ -116,50 +116,4 @@ public class SystemManager {
 		System.out.println("로그아웃 성공");
 	}
 
-	private void addUser() {
-		String id = Input.getString("아이디");
-		String password = Input.getString("비밀번호");
-		
-		if (users.containsKey(id)) {
-			System.out.println("이미 존재하는 아이디입니다");
-			return;
-		}
-		
-		users.put(id, new User(id, password));
-		System.out.println("회원가입 성공");
-	}
-	
-	private boolean deleteUser() {
-		User user = users.get(loggedInUserId);
-
-		String password = Input.getString("비밀번호");
-
-		if (!user.getPassword().equals(password)) {
-			System.out.println("비밀번호가 틀립니다");
-			return false;
-		}
-		
-		users.remove(loggedInUserId);
-		loggedInUserId = null;
-		System.out.println("회원탈퇴 성공");
-		
-		return true;
-	}
-	
-	private void editUser() {
-		String password = Input.getString("새 비밀번호");
-		String reEnteredPassword = Input.getString("새 비밀번호 재입력");
-		
-		if (!password.equals(reEnteredPassword)) {
-			System.out.println("비밀번호 불일치");
-			return;
-		}
-		
-		User user = users.get(loggedInUserId);
-		user.setPassword(password);
-		
-		users.replace(loggedInUserId, user);
-		
-		System.out.println("정보 수정 완료");
-	}	
 }
