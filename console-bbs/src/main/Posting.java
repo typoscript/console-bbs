@@ -27,6 +27,10 @@ public class Posting {
 	public String getUploadDate() {
 		return UPLOAD_DATE;
 	}
+	
+	public String getTitle() {
+		return title;
+	}
 
 	public String getContent() {
 		return content;
