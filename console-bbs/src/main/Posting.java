@@ -16,7 +16,7 @@ public class Posting {
 		this.content = content;
 	}
 
-	public Posting(int id, String userId, String uploadDate, String title, String content) {
+	public Posting(long id, String userId, String uploadDate, String title, String content) {
 		this.ID = id; 
 		this.USER_ID = userId;
 		this.UPLOAD_DATE = uploadDate;
@@ -47,6 +47,11 @@ public class Posting {
 	
 	public void setContent(String content) {
 		this.content = content;
+	}
+	
+	@Override
+	public Posting clone() {
+		return new Posting(ID, USER_ID, UPLOAD_DATE, title, content);
 	}
 	
 	@Override
