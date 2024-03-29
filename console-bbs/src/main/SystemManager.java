@@ -263,4 +263,10 @@ public class SystemManager {
 		
 		System.out.println("글 수정 성공");
 	}
+	
+	private boolean canDeletePosting(Posting posting) {
+		User user = userManager.getUser(loggedInUserId);
+
+		return !userManager.isAdminUser(user) && !posting.getUserId().equals(loggedInUserId);
+	}
 }
