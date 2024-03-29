@@ -13,10 +13,6 @@ public class UserManager {
 		return userManager;
 	}
 	
-	private User getUser(User user) {
-		return users.get(user.getId());
-	}
-	
 	public User getUser(String id) {
 		return users.get(id).clone();
 	}
@@ -29,19 +25,8 @@ public class UserManager {
 		users.put(user.getId(), user);
 	}
 	
-	public boolean deleteUser(String userId) {
-		User user = users.get(userId);
-
-		String password = Input.getString("비밀번호");
-
-		if (!user.getPassword().equals(password)) {
-			System.out.println("비밀번호가 틀립니다");
-			return false;
-		}
-		
-		users.remove(userId);
-		
-		return true;
+	public void deleteUser(User user) {
+		users.remove(user.getId());
 	}
 	
 	public boolean editUser(String userId) {
