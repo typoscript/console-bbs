@@ -231,7 +231,9 @@ public class SystemManager {
 	}
 	
 	private void deletePosting(Posting posting) {
-		if (!posting.getUserId().equals(loggedInUserId)) {
+		User user = userManager.getUser(loggedInUserId);
+		
+		if (!userManager.isAdminUser(user) && !posting.getUserId().equals(loggedInUserId)) {
 			System.out.println("다른 사람의 글 삭제 불가");
 			return;
 		}
@@ -242,7 +244,9 @@ public class SystemManager {
 	}
 	
 	private void editPosting(Posting posting) {
-		if (!posting.getUserId().equals(loggedInUserId)) {
+		User user = userManager.getUser(loggedInUserId);
+
+		if (!userManager.isAdminUser(user) && !posting.getUserId().equals(loggedInUserId)) {
 			System.out.println("다른 사람의 글 수정 불가");
 			return;
 		}
