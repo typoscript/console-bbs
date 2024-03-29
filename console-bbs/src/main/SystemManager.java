@@ -117,10 +117,16 @@ public class SystemManager {
 	}
 
 	private boolean deleteUser() {
-		boolean isDeleted = userManager.deleteUser(loggedInUserId);
-		
-		if (!isDeleted)
+		User user = userManager.getUser(loggedInUserId);
+
+		String password = Input.getString("비밀번호");
+
+		if (!user.getPassword().equals(password)) {
+			System.out.println("비밀번호가 틀립니다");
 			return false;
+		}
+
+		userManager.deleteUser(user);
 
 		System.out.println("회원탈퇴 성공");
 		loggedInUserId = null;
