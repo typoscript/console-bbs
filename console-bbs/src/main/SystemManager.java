@@ -70,6 +70,28 @@ public class SystemManager {
 		System.out.println("회원가입 성공");
 	}
 	
+	private void runLogin() {
+		String id = getInputString("아이디");
+		String password = getInputString("비밀번호");
+
+		if (!users.containsKey(id)) {
+			System.out.println("회원 아이디가 존재하지 않습니다");
+			return;
+		}
+		
+		User user = users.get(id);
+		
+		if (!user.getPassword().equals(password)) {
+			System.out.println("비밀번호가 틀립니다");
+			return;
+		}
+		
+		System.out.println("로그인 성공");
+		loggedInUserId = id;
+		
+		runMainMenu();
+	}
+	
 	private String getInputString(String msg) {
 		System.out.print(msg + ": ");
 		return sc.next();
