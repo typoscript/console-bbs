@@ -1,16 +1,16 @@
 package main;
 
 public class Posting {
-	private final int USER_UID;
+	private final int USER_ID;
 	private String content;
 	
-	public Posting(int userUID, String content) {
-		this.USER_UID = userUID;
+	public Posting(int userId, String content) {
+		this.USER_ID = userId;
 		this.content = content;
 	}
 	
-	public int getUserUID() {
-		return USER_UID;
+	public int getUserID() {
+		return USER_ID;
 	}
 
 	public String getContent() {
