@@ -15,6 +15,15 @@ public class Posting {
 		this.title = title;
 		this.content = content;
 	}
+
+	public Posting(int id, String userId, String uploadDate, String title, String content) {
+		this.ID = id; 
+		this.USER_ID = userId;
+		this.UPLOAD_DATE = uploadDate;
+
+		this.title = title;
+		this.content = content;
+	}
 	
 	public long getId() {
 		return ID;
