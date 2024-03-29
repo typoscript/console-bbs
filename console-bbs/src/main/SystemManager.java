@@ -146,7 +146,7 @@ public class SystemManager {
 		User user = userManager.getUser(loggedInUserId);
 		user.setPassword(password);
 		
-		userManager.editUser(user);
+		userManager.setUser(user);
 	}
 
 
