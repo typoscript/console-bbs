@@ -109,17 +109,22 @@ public class SystemManager {
 	}
 	
 	private void runUserMenu() {
-		while (true) {
+		boolean shouldExit = false;
+
+		while (!shouldExit) {
 			Menu.printUserMenu();
 
 			int menu = getInputNumber("유저 메뉴");
 
 			switch (menu) {
 				case Menu.DELETE_USER:
+					shouldExit = deleteUser();
 					break;
 				case Menu.EDIT_USER:
+					editUser();
 					break;
 				case Menu.GO_BACK:
+					shouldExit = true;
 					return;
 			}
 		}
