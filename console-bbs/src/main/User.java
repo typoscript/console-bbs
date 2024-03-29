@@ -25,4 +25,9 @@ public class User {
 	public User clone() {
 		return new User(ID, password);
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("아이디: %s | 비밀번호: %s", ID, password);
+	}
 }
