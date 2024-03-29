@@ -146,6 +146,23 @@ public class SystemManager {
 		return true;
 	}
 	
+	private void editUser() {
+		String password = getInputString("새 비밀번호");
+		String reEnteredPassword = getInputString("새 비밀번호 재입력");
+		
+		if (!password.equals(reEnteredPassword)) {
+			System.out.println("비밀번호 불일치");
+			return;
+		}
+		
+		User user = users.get(loggedInUserId);
+		user.setPassword(password);
+		
+		users.replace(loggedInUserId, user);
+		
+		System.out.println("정보 수정 완료");
+	}
+	
 	private String getInputString(String msg) {
 		System.out.print(msg + ": ");
 		return sc.next();
