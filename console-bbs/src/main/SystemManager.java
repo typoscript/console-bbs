@@ -168,12 +168,14 @@ public class SystemManager {
 		
 		int menu = Input.getNumber("글 번호");
 		
+		Posting posting = board.getPosting(index);
+		
 		switch (menu) {
 			case Menu.EDIT_POSTING:
-				editPosting();
+				editPosting(posting);
 				return;
 			case Menu.DELETE_POSTING:
-				deletePosting(index);
+				deletePosting(posting);
 				return;
 			case Menu.GO_BACK:
 				return;
@@ -189,10 +191,13 @@ public class SystemManager {
 		System.out.println("글 업로드 성공");
 	}
 	
-	private void deletePosting(int index) {
-		Posting posting = board.getPosting(index);
+	private void deletePosting(Posting posting) {
 		board.deletePosting(posting);
 		
 		System.out.println("글 삭제 성공");
+	}
+	
+	private void editPosting(Posting posting) {
+		
 	}
 }
