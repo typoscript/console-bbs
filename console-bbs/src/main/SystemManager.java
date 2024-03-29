@@ -105,6 +105,22 @@ public class SystemManager {
 		}
 	}
 	
+	private boolean runAdminManageUser() {
+		while (true) {
+			Menu.printUserManagementMenu();
+
+			int menu = Input.getNumber("메뉴");
+			
+			switch (menu) {
+				case Menu.ADMIN_VIEW_USER_ALL:
+					viewUserAll();
+					return true;
+				case Menu.GO_BACK:
+					return true;
+			}
+		}
+	}
+	
 	private boolean runUserMenu() {
 		while (true) {
 			Menu.printUserMenu();
