@@ -54,7 +54,7 @@ public class SystemManager {
 					shouldExit = runUserMenu();
 					break;
 				case Menu.VIEW_POSTINGS:
-					//runViewPostings();
+					runViewPostings();
 					break;
 				case Menu.EXIT:
 					isRunning = false;
@@ -81,6 +81,10 @@ public class SystemManager {
 					return false;
 			}
 		}
+	}
+	
+	private void runViewPostings() {
+		board.viewPostings();
 	}
 	
 	private void addUser() {
