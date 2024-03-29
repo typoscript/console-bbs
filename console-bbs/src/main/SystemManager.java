@@ -41,12 +41,21 @@ public class SystemManager {
 	}
 	
 	private void runMainMenu() {
+		User user = userManager.getUser(loggedInUserId);
+				
+		if (user instanceof Admin)
+			runMainMenuForAdmin();
+		else 
+			runMainMenuForUser();
+	}
+	
+	private void runMainMenuForUser() {
 		boolean shouldExit = false;
 
 		while (!shouldExit) {
-			Menu.printMainMenu();
+			Menu.printUserMainMenu();
 			
-			int menu = Input.getNumber("유저 메뉴");
+			int menu = Input.getNumber("메뉴");
 			
 			switch (menu) {
 				case Menu.LOG_OUT:
@@ -64,14 +73,36 @@ public class SystemManager {
 					return;
 			}
 		}
-	}
-	
-	private void runMainMenuForUser() {
 		
 	}
 	
 	private void runMainMenuForAdmin() {
-		
+		boolean shouldExit = false;
+
+		while (!shouldExit) {
+			Menu.printAdminMainMenu();
+			
+			int menu = Input.getNumber("메뉴");
+			
+			switch (menu) {
+				case Menu.LOG_OUT:
+					logoutUser();
+					shouldExit = true;
+					break;
+				case Menu.MANAGE_USER:
+					shouldExit = runUserMenu();
+					break;
+				case Menu.VIEW_POSTING_ALL:
+					runPostingMenu();
+					break;
+				case Menu.ADMIN_MANAGE_USER:
+					shouldExit = runAdminManageUser();
+					break;
+				case Menu.EXIT:
+					isRunning = false;
+					return;
+			}
+		}
 	}
 	
 	private boolean runUserMenu() {
