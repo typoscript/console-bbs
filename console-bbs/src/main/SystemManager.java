@@ -173,13 +173,18 @@ public class SystemManager {
 
 		runMainMenu();
 	}
+
 	
 	private void logoutUser() {
 		loggedInUserId = null;
 		System.out.println("로그아웃 성공");
 	}
 
+
 	private void viewPosting() {
+		if (!board.hasPosting())
+			return;
+
 		int index = Input.getNumber("글 번호") - 1;
 		
 		if (!board.hasPosting(index)) {
