@@ -19,7 +19,7 @@ public class Board {
 			return;
 		}
 		
-		for (int i = 0; i < postings.size(); i++) {
+		for (int i = postings.size() - 1; i >= 0; i--) {
 			Posting posting = postings.get(i);
 			
 			String postingPreview = String.format(
