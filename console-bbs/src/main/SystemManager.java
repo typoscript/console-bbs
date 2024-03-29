@@ -124,10 +124,26 @@ public class SystemManager {
 					editUser();
 					break;
 				case Menu.GO_BACK:
-					shouldExit = true;
 					return;
 			}
 		}
+	}
+	
+	private boolean deleteUser() {
+		User user = users.get(loggedInUserId);
+
+		String password = getInputString("비밀번호");
+
+		if (!user.getPassword().equals(password)) {
+			System.out.println("비밀번호가 틀립니다");
+			return false;
+		}
+		
+		users.remove(loggedInUserId);
+		loggedInUserId = null;
+		System.out.println("회원탈퇴 성공");
+		
+		return true;
 	}
 	
 	private String getInputString(String msg) {
