@@ -13,6 +13,10 @@ public class UserManager {
 		return userManager;
 	}
 	
+	private User getUser(User user) {
+		return users.get(user.getId());
+	}
+	
 	public User getUser(String id) {
 		return users.get(id).clone();
 	}
