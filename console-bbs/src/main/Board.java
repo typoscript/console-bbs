@@ -1,5 +1,22 @@
 package main;
 
-public class Board {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
+public class Board {
+	private Map<User, ArrayList<Posting>> board = new HashMap<>();
+	
+	public boolean addPosting(User user, Posting posting) {
+		if (!board.containsKey(user))
+			return false;
+		
+		ArrayList<Posting> postings = board.get(user);
+		
+		postings.add(posting);
+		
+		board.put(user, postings);
+		
+		return true;
+	}
 }
