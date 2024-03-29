@@ -21,16 +21,8 @@ public class UserManager {
 		return users.containsKey(id);
 	}
 
-	public void addUser() {
-		String id = Input.getString("아이디");
-		String password = Input.getString("비밀번호");
-		
-		if (users.containsKey(id)) {
-			System.out.println("이미 존재하는 아이디입니다");
-			return;
-		}
-		
-		users.put(id, new User(id, password));
+	public void addUser(User user) {
+		users.put(user.getId(), user);
 	}
 	
 	public boolean deleteUser(String userId) {
