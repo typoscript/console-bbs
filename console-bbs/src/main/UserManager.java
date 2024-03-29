@@ -29,7 +29,7 @@ public class UserManager {
 		users.remove(user.getId());
 	}
 	
-	public void editUser(User user) {
+	public void setUser(User user) {
 		users.replace(user.getId(), user);
 	}	
 }
