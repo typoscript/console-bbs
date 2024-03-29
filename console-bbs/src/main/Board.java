@@ -46,6 +46,10 @@ public class Board {
 		
 		postings.set(index, posting);
 	}
+
+	public boolean hasPosting() {
+		return postings.size() > 0;
+	}
 	
 	public boolean hasPosting(int index) {
 		return index >= 0 && index < postings.size();
