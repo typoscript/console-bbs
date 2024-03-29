@@ -84,9 +84,8 @@ public class SystemManager {
 	}
 	
 	private void runPostingMenu() {
-		board.viewPostingAll();
-		
 		while (true) {
+			board.viewPostingAll();
 			Menu.printPostingMenu();
 
 			int menu = Input.getNumber("글 메뉴");
@@ -161,6 +160,8 @@ public class SystemManager {
 		String content = Input.getString("내용");
 
 		board.addPosting(new Posting(loggedInUserId, title, content));
+		
+		System.out.println("글 업로드 성공");
 	}
 	
 }
