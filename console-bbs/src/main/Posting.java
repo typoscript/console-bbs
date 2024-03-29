@@ -23,6 +23,10 @@ public class Posting {
 	public int getUserId() {
 		return USER_ID;
 	}
+	
+	public String getUploadDate() {
+		return UPLOAD_DATE;
+	}
 
 	public String getContent() {
 		return content;
