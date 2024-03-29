@@ -116,6 +116,12 @@ public class SystemManager {
 		}
 	}
 	
+	private void runLogout() {
+		isRunning = false;
+		loggedInUserId = null;
+		System.out.println("로그아웃 성공");
+	}
+	
 	private String getInputString(String msg) {
 		System.out.print(msg + ": ");
 		return sc.next();
