@@ -51,7 +51,7 @@ public class SystemManager {
 					shouldExit = true;
 					break;
 				case Menu.MANAGE_USER:
-					runUserMenu();
+					shouldExit = runUserMenu();
 					break;
 				case Menu.VIEW_POSTINGS:
 					//runViewPostings();
@@ -63,23 +63,22 @@ public class SystemManager {
 		}
 	}
 	
-	private void runUserMenu() {
-		boolean shouldExit = false;
-
-		while (!shouldExit) {
+	private boolean runUserMenu() {
+		while (true) {
 			Menu.printUserMenu();
 
 			int menu = Input.getNumber("유저 메뉴");
 
 			switch (menu) {
 				case Menu.DELETE_USER:
-					shouldExit = deleteUser();
+					if (deleteUser())
+						return true;
 					break;
 				case Menu.EDIT_USER:
 					editUser();
 					break;
 				case Menu.GO_BACK:
-					return;
+					return false;
 			}
 		}
 	}
