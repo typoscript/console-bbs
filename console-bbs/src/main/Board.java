@@ -55,6 +55,10 @@ public class Board {
 		return true;
 	}
 	
+	public boolean isValidIndex(int index) {
+		return index >= 0 && index < postings.size();
+	}
+	
 	private int getIndexOfPosting(Posting posting) {
 		for (int i = 0; i < postings.size(); i++) {
 			if (postings.get(i).getId() == posting.getId()) {
