@@ -14,7 +14,11 @@ public class UserManager {
 	}
 	
 	public User getUser(String id) {
-		return users.get(id);
+		return users.get(id).clone();
+	}
+
+	public boolean hasId(String id) {
+		return users.containsKey(id);
 	}
 
 	public void addUser() {
@@ -60,8 +64,4 @@ public class UserManager {
 		
 		return true;
 	}	
-	
-	public boolean hasId(String id) {
-		return users.containsKey(id);
-	}
 }
