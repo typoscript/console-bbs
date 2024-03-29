@@ -35,7 +35,6 @@ public class SystemManager {
 				break;
 			case Menu.LOG_IN:
 				loginUser();
-				runMainMenu();
 				break;
 			case Menu.EXIT:
 				isRunning = false;
@@ -108,6 +107,8 @@ public class SystemManager {
 		
 		System.out.println("로그인 성공");
 		loggedInUserId = id;
+
+		runMainMenu();
 	}
 	
 	private void logoutUser() {
