@@ -20,7 +20,7 @@ public class SystemManager {
 	private final int EDIT_USER = 2;
 	private final int GO_BACK = 3;
 
-	private int loggedInUserUID = -1;
+	private String loggedInUserId = null;
 	private Scanner sc = new Scanner(System.in);
 	private Board board;
 	private Map<String, User> users;
