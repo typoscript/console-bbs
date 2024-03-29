@@ -23,11 +23,10 @@ public class UserManager {
 		}
 		
 		users.put(id, new User(id, password));
-		System.out.println("회원가입 성공");
 	}
 	
-	public boolean deleteUser() {
-		User user = users.get(loggedInUserId);
+	public boolean deleteUser(String userId) {
+		User user = users.get(userId);
 
 		String password = Input.getString("비밀번호");
 
@@ -36,14 +35,12 @@ public class UserManager {
 			return false;
 		}
 		
-		users.remove(loggedInUserId);
-		loggedInUserId = null;
-		System.out.println("회원탈퇴 성공");
+		users.remove(userId);
 		
 		return true;
 	}
 	
-	public void editUser() {
+	public void editUser(String userId) {
 		String password = Input.getString("새 비밀번호");
 		String reEnteredPassword = Input.getString("새 비밀번호 재입력");
 		
@@ -52,12 +49,10 @@ public class UserManager {
 			return;
 		}
 		
-		User user = users.get(loggedInUserId);
+		User user = users.get(userId);
 		user.setPassword(password);
 		
-		users.replace(loggedInUserId, user);
-		
-		System.out.println("정보 수정 완료");
+		users.replace(userId, user);
 	}	
 	
 	public boolean hasId(String id) {
