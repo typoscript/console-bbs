@@ -10,6 +10,7 @@ public class SystemManager {
 	public SystemManager() {
 		board = new Board();
 		userManager = UserManager.getInstance();
+		userManager.addUser(new Admin("admin", "1234"));
 		
 		isRunning = true;
 	}
