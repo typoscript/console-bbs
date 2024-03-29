@@ -27,27 +27,20 @@ public class Board {
 		}
 	}
 	
-	public boolean addPosting(Posting posting) {
+	public void addPosting(Posting posting) {
 		postings.add(posting);
-		
-		return true;
 	}
 	
-	public boolean deletePosting(int index) {
-		postings.remove(index);
+	public void deletePosting(Posting posting) {
+		int index = getIndexOfPosting(posting);
 
-		return true;
+		postings.remove(index);
 	}
 	
-	public boolean setPosting(Posting posting) {
+	public void setPosting(Posting posting) {
 		int index = getIndexOfPosting(posting);
 		
-		if (index < 0)
-			return false;
-		
 		postings.set(index, posting);
-		
-		return true;
 	}
 	
 	public boolean hasPosting(int index) {
