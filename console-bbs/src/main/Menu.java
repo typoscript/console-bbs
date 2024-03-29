@@ -4,7 +4,7 @@ public class Menu {
 	public static final int EXIT = 0;
 
 	public static final int ADD_USER = 1;
-	public final int LOG_IN = 2;
+	public static final int LOG_IN = 2;
 
 	public static final int LOG_OUT = 1;
 	public static final int MANAGE_USER = 2;
