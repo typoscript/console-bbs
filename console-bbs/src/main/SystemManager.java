@@ -23,7 +23,7 @@ public class SystemManager {
 	
 	public void run() {
 		while (isRunning) {
-			printStartMenu();
+			Menu.printStartMenu();
 			int menu = getInputNumber("메뉴");
 			
 			runStartMenu(menu);
@@ -32,13 +32,13 @@ public class SystemManager {
 	
 	private void runStartMenu(int menu) {
 		switch (menu) {
-			case ADD_USER:
+			case Menu.ADD_USER:
 				runAddUser();
 				break;
-			case LOG_IN:
+			case Menu.LOG_IN:
 				runLogin();
 				break;
-			case EXIT:
+			case Menu.EXIT:
 				isRunning = false;
 				break;
 		}
@@ -81,21 +81,21 @@ public class SystemManager {
 	
 	private void runMainMenu() {
 		while (isRunning) {
-			printMainMenu();
+			Menu.printMainMenu();
 			
 			int menu = getInputNumber("메뉴");
 			
 			switch (menu) {
-				case LOG_OUT:
+				case Menu.LOG_OUT:
 					runLogout();
 					break;
-				case MANAGE_USER:
+				case Menu.MANAGE_USER:
 					runUserMenu();
 					break;
-				case VIEW_POSTINGS:
+				case Menu.VIEW_POSTINGS:
 					runViewPostings();
 					break;
-				case EXIT:
+				case Menu.EXIT:
 					isRunning = false;
 					break;
 			}
@@ -110,18 +110,18 @@ public class SystemManager {
 	
 	private void runUserMenu() {
 		while (true) {
-			printUserMenu();
+			Menu.printUserMenu();
 
 			int menu = getInputNumber("유저 메뉴");
 
 			switch (menu) {
-				case DELETE_USER:
+				case Menu.DELETE_USER:
 					runLogout();
 					break;
-				case EDIT_USER:
+				case Menu.EDIT_USER:
 					runEditUser();
 					break;
-				case GO_BACK:
+				case Menu.GO_BACK:
 					return;
 			}
 		}
