@@ -135,11 +135,20 @@ public class SystemManager {
 	}
 
 	private void editUser() {
-		boolean isEdited = userManager.editUser(loggedInUserId);
+		String password = Input.getString("새 비밀번호");
+		String reEnteredPassword = Input.getString("새 비밀번호 재입력");
 		
-		if (isEdited)
-			System.out.println("정보 수정 완료");
+		if (!password.equals(reEnteredPassword)) {
+			System.out.println("비밀번호 불일치");
+			return;
+		}
+		
+		User user = userManager.getUser(loggedInUserId);
+		user.setPassword(password);
+		
+		userManager.editUser(user);
 	}
+
 
 	private void loginUser() {
 		String id = Input.getString("아이디");
