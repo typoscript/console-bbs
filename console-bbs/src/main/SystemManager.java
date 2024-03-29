@@ -22,6 +22,8 @@ public class SystemManager {
 			
 			runStartMenu(menu);
 		}
+		
+		System.out.println("종료");
 	}
 	
 	private void runStartMenu(int menu) {
