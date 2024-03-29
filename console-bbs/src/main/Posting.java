@@ -25,4 +25,13 @@ public class Posting {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
+	@Override
+	public String toString() {
+		String data = String.format("[제목: %s]\n", title);
+		data += String.format("[글쓴이: %s | 업로드 날짜: %s]\n", USER_ID, UPLOAD_DATE);
+		data += String.format("[내용: %s]\n", content);
+		
+		return data;
+	}
 }
