@@ -3,12 +3,10 @@ package main;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.Set;
 
 public class SystemManager {
 	private String loggedInUserId = null;
-	private Scanner sc = new Scanner(System.in);
 	private Board board;
 	private Map<String, User> users;
 	
@@ -24,7 +22,7 @@ public class SystemManager {
 	public void run() {
 		while (isRunning) {
 			Menu.printStartMenu();
-			int menu = getInputNumber("메뉴");
+			int menu = Input.getNumber("유저 메뉴");
 			
 			runStartMenu(menu);
 		}
@@ -51,7 +49,7 @@ public class SystemManager {
 		while (!shouldExit) {
 			Menu.printMainMenu();
 			
-			int menu = getInputNumber("메뉴");
+			int menu = Input.getNumber("유저 메뉴");
 			
 			switch (menu) {
 				case Menu.LOG_OUT:
@@ -77,7 +75,7 @@ public class SystemManager {
 		while (!shouldExit) {
 			Menu.printUserMenu();
 
-			int menu = getInputNumber("유저 메뉴");
+			int menu = Input.getNumber("유저 메뉴");
 
 			switch (menu) {
 				case Menu.DELETE_USER:
@@ -93,8 +91,8 @@ public class SystemManager {
 	}
 
 	private void loginUser() {
-		String id = getInputString("아이디");
-		String password = getInputString("비밀번호");
+		String id = Input.getString("아이디");
+		String password = Input.getString("비밀번호");
 
 		if (!users.containsKey(id)) {
 			System.out.println("회원 아이디가 존재하지 않습니다");
@@ -118,8 +116,8 @@ public class SystemManager {
 	}
 
 	private void addUser() {
-		String id = getInputString("아이디");
-		String password = getInputString("비밀번호");
+		String id = Input.getString("아이디");
+		String password = Input.getString("비밀번호");
 		
 		if (users.containsKey(id)) {
 			System.out.println("이미 존재하는 아이디입니다");
@@ -133,7 +131,7 @@ public class SystemManager {
 	private boolean deleteUser() {
 		User user = users.get(loggedInUserId);
 
-		String password = getInputString("비밀번호");
+		String password = Input.getString("비밀번호");
 
 		if (!user.getPassword().equals(password)) {
 			System.out.println("비밀번호가 틀립니다");
@@ -148,8 +146,8 @@ public class SystemManager {
 	}
 	
 	private void editUser() {
-		String password = getInputString("새 비밀번호");
-		String reEnteredPassword = getInputString("새 비밀번호 재입력");
+		String password = Input.getString("새 비밀번호");
+		String reEnteredPassword = Input.getString("새 비밀번호 재입력");
 		
 		if (!password.equals(reEnteredPassword)) {
 			System.out.println("비밀번호 불일치");
@@ -162,20 +160,5 @@ public class SystemManager {
 		users.replace(loggedInUserId, user);
 		
 		System.out.println("정보 수정 완료");
-	}
-	
-	private String getInputString(String msg) {
-		System.out.print(msg + ": ");
-		return sc.next();
-	}
-
-	private int getInputNumber(String msg) {
-		while (true) {
-			String input = getInputString(msg);
-
-			try {
-				return Integer.parseInt(input);
-			} catch (Exception e) { }
-		}
 	}	
 }
