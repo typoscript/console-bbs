@@ -263,6 +263,6 @@ public class SystemManager {
 	private boolean canModifyPosting(Posting posting) {
 		User user = userManager.getUser(loggedInUserId);
 
-		return !userManager.isAdminUser(user) && !posting.getUserId().equals(loggedInUserId);
+		return userManager.isAdminUser(user) || posting.getUserId().equals(loggedInUserId);
 	}
 }
