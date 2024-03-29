@@ -198,6 +198,14 @@ public class SystemManager {
 	}
 	
 	private void editPosting(Posting posting) {
+		String title = Input.getString("제목");
+		String content = Input.getString("내용");
+
+		posting.setTitle(title);
+		posting.setContent(content);
 		
+		board.setPosting(posting);
+		
+		System.out.println("글 수정 성공");
 	}
 }
