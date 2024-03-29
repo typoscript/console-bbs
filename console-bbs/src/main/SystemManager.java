@@ -1,10 +1,5 @@
 package main;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
 public class SystemManager {
 	private String loggedInUserId = null;
 	private Board board;
@@ -31,7 +26,7 @@ public class SystemManager {
 	private void runStartMenu(int menu) {
 		switch (menu) {
 			case Menu.ADD_USER:
-				userManager.addUser();
+				addUser();
 				break;
 			case Menu.LOG_IN:
 				loginUser();
@@ -87,6 +82,11 @@ public class SystemManager {
 					return;
 			}
 		}
+	}
+	
+	private void addUser() {
+		userManager.addUser();
+		System.out.println("회원가입 성공");
 	}
 
 	private void loginUser() {
