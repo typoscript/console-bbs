@@ -162,23 +162,31 @@ public class SystemManager {
 			return;
 		}
 
-		board.viewPosting(index);
-		
-		Menu.printPostingEditMenu();
-		
-		int menu = Input.getNumber("글 번호");
-		
 		Posting posting = board.getPosting(index);
+		
+		while (true) {
+			board.viewPosting(index);
+			Menu.printPostingEditMenu();
+			
+			if (runPostingEditMenu(posting))
+				return;
+		}
+	}
+	
+	private boolean runPostingEditMenu(Posting posting) {
+		int menu = Input.getNumber("글 수정 메뉴");
 		
 		switch (menu) {
 			case Menu.EDIT_POSTING:
 				editPosting(posting);
-				return;
+				return true;
 			case Menu.DELETE_POSTING:
 				deletePosting(posting);
-				return;
+				return true;
 			case Menu.GO_BACK:
-				return;
+				return true;
+			default:
+				return false;
 		}
 	}
 	
@@ -192,12 +200,22 @@ public class SystemManager {
 	}
 	
 	private void deletePosting(Posting posting) {
+		if (!posting.getUserId().equals(loggedInUserId)) {
+			System.out.println("다른 사람의 글 삭제 불가");
+			return;
+		}
+
 		board.deletePosting(posting);
 		
 		System.out.println("글 삭제 성공");
 	}
 	
 	private void editPosting(Posting posting) {
+		if (!posting.getUserId().equals(loggedInUserId)) {
+			System.out.println("다른 사람의 글 수정 불가");
+			return;
+		}
+
 		String title = Input.getString("제목");
 		String content = Input.getString("내용");
 
