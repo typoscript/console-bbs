@@ -20,4 +20,4 @@ Admin 유저의 정보
 </br>
 
 ## 데모
-<img src="https://github.com/typoscript/console-bbs/blob/master/demo.gif"/>
+<img src="https://github.com/typoscript/console-bbs/blob/master/images/demo.gif"/>
