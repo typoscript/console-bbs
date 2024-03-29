@@ -13,6 +13,10 @@ public class UserManager {
 		return userManager;
 	}
 	
+	public boolean isAdminUser(User user) {
+		return user instanceof Admin;
+	}
+	
 	public User getUser(String id) {
 		return users.get(id).clone();
 	}
