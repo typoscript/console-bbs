@@ -92,13 +92,12 @@ public class SystemManager {
 
 			switch (menu) {
 				case Menu.VIEW_POSTING:
-					break;
-				case Menu.EDIT_POSTING:
+					viewPosting();
 					break;
 				case Menu.ADD_POSTING:
 					addPosting();
 					break;
-				case Menu.POSTING_GO_BACK:
+				case Menu.GO_BACK:
 					return;
 			}
 		}
@@ -155,6 +154,32 @@ public class SystemManager {
 		System.out.println("로그아웃 성공");
 	}
 
+	private void viewPosting() {
+		int index = Input.getNumber("글 번호") - 1;
+		
+		if (!board.hasPosting(index)) {
+			System.out.println("잘못된 번호입니다");
+			return;
+		}
+
+		board.viewPosting(index);
+		
+		Menu.printPostingEditMenu();
+		
+		int menu = Input.getNumber("글 번호");
+		
+		switch (menu) {
+			case Menu.EDIT_POSTING:
+				editPosting();
+				return;
+			case Menu.DELETE_POSTING:
+				deletePosting(index);
+				return;
+			case Menu.GO_BACK:
+				return;
+		}
+	}
+	
 	private void addPosting() {
 		String title = Input.getString("제목");
 		String content = Input.getString("내용");
@@ -164,4 +189,10 @@ public class SystemManager {
 		System.out.println("글 업로드 성공");
 	}
 	
+	private void deletePosting(int index) {
+		Posting posting = board.getPosting(index);
+		board.deletePosting(posting);
+		
+		System.out.println("글 삭제 성공");
+	}
 }
