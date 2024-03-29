@@ -104,7 +104,15 @@ public class SystemManager {
 	}
 	
 	private void addUser() {
-		userManager.addUser();
+		String id = Input.getString("아이디");
+		String password = Input.getString("비밀번호");
+		
+		if (userManager.hasId(id)) {
+			System.out.println("이미 존재하는 아이디입니다");
+			return;
+		}
+		
+		userManager.addUser(new User(id, password));
 		System.out.println("회원가입 성공");
 	}
 
