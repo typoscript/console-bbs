@@ -28,10 +28,18 @@ public class Menu {
 		System.out.println("[0] 종료");
 	}
 	
-	public static void printMainMenu() {
+	public static void printUserMainMenu() {
 		System.out.println("[1] 로그아웃");
 		System.out.println("[2] 계정 관리");
 		System.out.println("[3] 게시글 보기");
+		System.out.println("[0] 종료");
+	}
+
+	public static void printAdminMainMenu() {
+		System.out.println("[1] 로그아웃");
+		System.out.println("[2] 계정 관리");
+		System.out.println("[3] 게시글 보기");
+		System.out.println("[4] 유저 관리");
 		System.out.println("[0] 종료");
 	}
 	
