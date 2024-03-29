@@ -5,6 +5,10 @@ import java.util.ArrayList;
 public class Board {
 	private ArrayList<Posting> postings = new ArrayList<>();
 	
+	public Posting getPosting(int index) {
+		return postings.get(index).clone();
+	}
+	
 	public void viewPosting(int index) {
 		System.out.println(postings.get(index));
 	}
