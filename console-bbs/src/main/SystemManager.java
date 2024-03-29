@@ -90,12 +90,14 @@ public class SystemManager {
 	}
 
 	private boolean deleteUser() {
-		boolean isDeleted = userManager.deleteUser();
+		boolean isDeleted = userManager.deleteUser(loggedInUserId);
 		
 		if (!isDeleted)
 			return false;
 
 		System.out.println("회원탈퇴 성공");
+		loggedInUserId = null;
+
 		return true;
 	}
 
