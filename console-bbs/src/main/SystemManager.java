@@ -53,8 +53,8 @@ public class SystemManager {
 				case Menu.MANAGE_USER:
 					shouldExit = runUserMenu();
 					break;
-				case Menu.VIEW_POSTINGS:
-					runViewPostings();
+				case Menu.VIEW_POSTING_ALL:
+					runPostingMenu();
 					break;
 				case Menu.EXIT:
 					isRunning = false;
@@ -83,8 +83,26 @@ public class SystemManager {
 		}
 	}
 	
-	private void runViewPostings() {
-		board.viewPostings();
+	private void runPostingMenu() {
+		board.viewPostingAll();
+		
+		while (true) {
+			Menu.printPostingMenu();
+
+			int menu = Input.getNumber("글 메뉴");
+
+			switch (menu) {
+				case Menu.VIEW_POSTING:
+					break;
+				case Menu.EDIT_POSTING:
+					break;
+				case Menu.ADD_POSTING:
+					addPosting();
+					break;
+				case Menu.POSTING_GO_BACK:
+					return;
+			}
+		}
 	}
 	
 	private void addUser() {
