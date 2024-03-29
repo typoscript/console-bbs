@@ -1,18 +1,18 @@
 package main;
 
 public class Menu {
-	public final int EXIT = 0;
+	public static final int EXIT = 0;
 
-	public final int ADD_USER = 1;
+	public static final int ADD_USER = 1;
 	public final int LOG_IN = 2;
 
-	public final int LOG_OUT = 1;
-	public final int MANAGE_USER = 2;
-	public final int VIEW_POSTINGS = 3;
+	public static final int LOG_OUT = 1;
+	public static final int MANAGE_USER = 2;
+	public static final int VIEW_POSTINGS = 3;
 
-	public final int DELETE_USER = 1;
-	public final int EDIT_USER = 2;
-	public final int GO_BACK = 3;
+	public static final int DELETE_USER = 1;
+	public static final int EDIT_USER = 2;
+	public static final int GO_BACK = 3;
 
 	public static void printStartMenu() {
 		System.out.println("[1] 회원가입");
