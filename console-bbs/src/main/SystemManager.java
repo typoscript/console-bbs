@@ -102,8 +102,10 @@ public class SystemManager {
 	}
 
 	private void editUser() {
-		userManager.editUser();
-		System.out.println("정보 수정 완료");
+		boolean isEdited = userManager.editUser(loggedInUserId);
+		
+		if (isEdited)
+			System.out.println("정보 수정 완료");
 	}
 
 	private void loginUser() {
