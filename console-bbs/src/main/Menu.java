@@ -13,6 +13,7 @@ public class Menu {
 	public static final int DELETE_USER = 1;
 	public static final int EDIT_USER = 2;
 	public static final int GO_BACK = 3;
+	public static final int POSTING_GO_BACK = 4;
 	
 	private Menu() { }
 
@@ -33,5 +34,12 @@ public class Menu {
 		System.out.println("[1] 회원탈퇴");
 		System.out.println("[2] 정보 수정");
 		System.out.println("[3] 뒤로가기");
+	}
+	
+	public static void printPostingMenu() {
+		System.out.println("[1] 글 보기");
+		System.out.println("[2] 글 수정");
+		System.out.println("[3] 글쓰기");
+		System.out.println("[4] 뒤로가기");
 	}
 }
