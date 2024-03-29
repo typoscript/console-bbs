@@ -19,4 +19,20 @@ public class Board {
 		
 		return true;
 	}
+	
+	public boolean deletePosting(User user, Posting posting) {
+		if (!board.containsKey(user))
+			return false;
+		
+		ArrayList<Posting> postings = board.get(user);
+		
+		for (int i = 0; i < postings.size(); i++) {
+			if (postings.get(i).getId() == posting.getId()) {
+				postings.remove(i);
+				return true;
+			}
+		}
+		
+		return false;
+	}
 }
