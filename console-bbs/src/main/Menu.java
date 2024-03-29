@@ -13,6 +13,8 @@ public class Menu {
 	public static final int DELETE_USER = 1;
 	public static final int EDIT_USER = 2;
 	public static final int GO_BACK = 3;
+	
+	private Menu() { }
 
 	public static void printStartMenu() {
 		System.out.println("[1] 회원가입");
