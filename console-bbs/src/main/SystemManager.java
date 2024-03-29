@@ -103,7 +103,7 @@ public class SystemManager {
 					runLogout();
 					break;
 				case MANAGE_USER:
-					runManageUser();
+					runUserMenu();
 					break;
 				case VIEW_POSTINGS:
 					runViewPostings();
@@ -150,7 +150,7 @@ public class SystemManager {
 		System.out.println("[0] 종료");
 	}
 	
-	private void printAccountMenu() {
+	private void printUserMenu() {
 		System.out.println("[1] 회원탈퇴");
 		System.out.println("[2] 정보 수정");
 		System.out.println("[3] 뒤로가기");
