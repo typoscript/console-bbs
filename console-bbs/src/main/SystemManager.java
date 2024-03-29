@@ -59,9 +59,15 @@ public class SystemManager {
 	
 	private void runAddUser() {
 		String id = getInputString("아이디");
-		String password = getInputString("password");
+		String password = getInputString("비밀번호");
 		
-		if (users.conta)
+		if (users.containsKey(id)) {
+			System.out.println("이미 존재하는 아이디입니다");
+			return;
+		}
+		
+		users.put(id, new User(id, password));
+		System.out.println("회원가입 성공");
 	}
 	
 	private String getInputString(String msg) {
