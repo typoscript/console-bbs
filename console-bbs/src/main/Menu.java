@@ -15,10 +15,10 @@ public class Menu {
 	public static final int GO_BACK = 3;
 	
 	public static final int VIEW_POSTING = 1;
-	public static final int EDIT_POSTING = 2;
-	public static final int ADD_POSTING = 3;
-	public static final int POSTING_GO_BACK = 4;
-	
+	public static final int ADD_POSTING = 2;
+
+	public static final int EDIT_POSTING = 1;
+	public static final int DELETE_POSTING = 2;
 	
 	private Menu() { }
 
@@ -44,7 +44,7 @@ public class Menu {
 	public static void printPostingMenu() {
 		System.out.println("[1] 글 보기");
 		System.out.println("[3] 글쓰기");
-		System.out.println("[4] 뒤로가기");
+		System.out.println("[3] 뒤로가기");
 	}
 
 	public static void printPostingEditMenu() {
