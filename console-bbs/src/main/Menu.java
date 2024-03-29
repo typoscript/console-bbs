@@ -43,8 +43,13 @@ public class Menu {
 	
 	public static void printPostingMenu() {
 		System.out.println("[1] 글 보기");
-		System.out.println("[2] 글 수정");
 		System.out.println("[3] 글쓰기");
 		System.out.println("[4] 뒤로가기");
+	}
+
+	public static void printPostingEditMenu() {
+		System.out.println("[1] 글 수정");
+		System.out.println("[2] 글 삭제");
+		System.out.println("[3] 뒤로가기");
 	}
 }
