@@ -182,7 +182,7 @@ public class SystemManager {
 
 
 	private void viewPosting() {
-		if (!board.hasPosting())
+		if (board.isEmpty())
 			return;
 
 		int index = Input.getNumber("글 번호") - 1;
