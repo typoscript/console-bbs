@@ -36,7 +36,7 @@ public class SystemManager {
 				addUser();
 				break;
 			case Menu.LOG_IN:
-				runLogin();
+				loginUser();
 				break;
 			case Menu.EXIT:
 				isRunning = false;
@@ -57,7 +57,7 @@ public class SystemManager {
 		System.out.println("회원가입 성공");
 	}
 	
-	private void runLogin() {
+	private void loginUser() {
 		String id = getInputString("아이디");
 		String password = getInputString("비밀번호");
 
