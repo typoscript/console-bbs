@@ -66,6 +66,14 @@ public class SystemManager {
 		}
 	}
 	
+	private void runMainMenuForUser() {
+		
+	}
+	
+	private void runMainMenuForAdmin() {
+		
+	}
+	
 	private boolean runUserMenu() {
 		while (true) {
 			Menu.printUserMenu();
