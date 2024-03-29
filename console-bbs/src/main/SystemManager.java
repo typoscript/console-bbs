@@ -113,7 +113,7 @@ public class SystemManager {
 			
 			switch (menu) {
 				case Menu.ADMIN_VIEW_USER_ALL:
-					viewUserAll();
+					userManager.printUserAll();
 					return true;
 				case Menu.GO_BACK:
 					return true;
