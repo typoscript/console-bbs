@@ -233,9 +233,7 @@ public class SystemManager {
 	}
 	
 	private void deletePosting(Posting posting) {
-		User user = userManager.getUser(loggedInUserId);
-		
-		if (!userManager.isAdminUser(user) && !posting.getUserId().equals(loggedInUserId)) {
+		if (!canModifyPosting(posting)) {
 			System.out.println("다른 사람의 글 삭제 불가");
 			return;
 		}
