@@ -17,6 +17,10 @@ public class UserManager {
 		return users.get(id).clone();
 	}
 
+	public void setUser(User user) {
+		users.replace(user.getId(), user);
+	}	
+
 	public boolean hasId(String id) {
 		return users.containsKey(id);
 	}
@@ -27,9 +31,5 @@ public class UserManager {
 	
 	public void deleteUser(User user) {
 		users.remove(user.getId());
-	}
-	
-	public void setUser(User user) {
-		users.replace(user.getId(), user);
 	}	
 }
