@@ -1,6 +1,8 @@
 package main;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -21,13 +23,13 @@ public class SystemManager {
 	private int loggedInUserUID = -1;
 	private Scanner sc = new Scanner(System.in);
 	private Board board;
-	private Set<User> users;
+	private Map<String, User> users;
 	
 	private boolean isRunning;
 	
 	public SystemManager() {
 		this.board = new Board();
-		this.users = new HashSet<User>();
+		this.users = new HashMap<>();
 		
 		isRunning = true;
 	}
@@ -53,6 +55,13 @@ public class SystemManager {
 				isRunning = false;
 				break;
 		}
+	}
+	
+	private void runAddUser() {
+		String id = getInputString("아이디");
+		String password = getInputString("password");
+		
+		if (users.conta)
 	}
 	
 	private String getInputString(String msg) {
