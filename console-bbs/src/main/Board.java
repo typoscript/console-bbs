@@ -47,8 +47,8 @@ public class Board {
 		postings.set(index, posting);
 	}
 
-	public boolean hasPosting() {
-		return postings.size() > 0;
+	public boolean isEmpty() {
+		return postings.isEmpty();
 	}
 	
 	public boolean hasPosting(int index) {
