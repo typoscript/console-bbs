@@ -2,7 +2,7 @@ package main;
 
 import java.util.List;
 
-public class SystemManager {
+public class SystemManager extends Menu {
 	private String loggedInUserId = null;
 	private Board board;
 	private UserManager userManager;
@@ -22,7 +22,7 @@ public class SystemManager {
 		loadUsersFromFile();
 
 		while (isRunning) {
-			Menu.printStartMenu();
+			printStartMenu();
 			int menu = Input.getNumber("유저 메뉴");
 			
 			runStartMenu(menu);
@@ -33,13 +33,13 @@ public class SystemManager {
 	
 	private void runStartMenu(int menu) {
 		switch (menu) {
-			case Menu.ADD_USER:
+			case ADD_USER:
 				addUser();
 				break;
-			case Menu.LOG_IN:
+			case LOG_IN:
 				loginUser();
 				break;
-			case Menu.EXIT:
+			case EXIT:
 				isRunning = false;
 				break;
 		}
@@ -58,22 +58,22 @@ public class SystemManager {
 		boolean shouldExit = false;
 
 		while (!shouldExit) {
-			Menu.printUserMainMenu();
+			printUserMainMenu();
 			
 			int menu = Input.getNumber("메뉴");
 			
 			switch (menu) {
-				case Menu.LOG_OUT:
+				case LOG_OUT:
 					logoutUser();
 					shouldExit = true;
 					break;
-				case Menu.MANAGE_USER:
+				case MANAGE_USER:
 					shouldExit = runUserMenu();
 					break;
-				case Menu.VIEW_POSTING_ALL:
+				case VIEW_POSTING_ALL:
 					runPostingMenu();
 					break;
-				case Menu.EXIT:
+				case EXIT:
 					isRunning = false;
 					return;
 			}
@@ -85,25 +85,25 @@ public class SystemManager {
 		boolean shouldExit = false;
 
 		while (!shouldExit) {
-			Menu.printAdminMainMenu();
+			printAdminMainMenu();
 			
 			int menu = Input.getNumber("메뉴");
 			
 			switch (menu) {
-				case Menu.LOG_OUT:
+				case LOG_OUT:
 					logoutUser();
 					shouldExit = true;
 					break;
-				case Menu.MANAGE_USER:
+				case MANAGE_USER:
 					shouldExit = runUserMenu();
 					break;
-				case Menu.VIEW_POSTING_ALL:
+				case VIEW_POSTING_ALL:
 					runPostingMenu();
 					break;
-				case Menu.ADMIN_MANAGE_USER:
+				case ADMIN_MANAGE_USER:
 					runAdminManageUser();
 					break;
-				case Menu.EXIT:
+				case EXIT:
 					isRunning = false;
 					return;
 			}
@@ -112,15 +112,15 @@ public class SystemManager {
 	
 	private boolean runAdminManageUser() {
 		while (true) {
-			Menu.printUserManagementMenu();
+			printUserManagementMenu();
 
 			int menu = Input.getNumber("메뉴");
 			
 			switch (menu) {
-				case Menu.ADMIN_VIEW_USER_ALL:
+				case ADMIN_VIEW_USER_ALL:
 					userManager.printUserAll();
 					return true;
-				case Menu.GO_BACK:
+				case GO_BACK:
 					return true;
 			}
 		}
@@ -128,19 +128,19 @@ public class SystemManager {
 	
 	private boolean runUserMenu() {
 		while (true) {
-			Menu.printUserMenu();
+			printUserMenu();
 
 			int menu = Input.getNumber("유저 메뉴");
 
 			switch (menu) {
-				case Menu.DELETE_USER:
+				case DELETE_USER:
 					if (deleteUser())
 						return true;
 					break;
-				case Menu.EDIT_USER:
+				case EDIT_USER:
 					editUser();
 					break;
-				case Menu.GO_BACK:
+				case GO_BACK:
 					return false;
 			}
 		}
@@ -149,18 +149,18 @@ public class SystemManager {
 	private void runPostingMenu() {
 		while (true) {
 			board.viewPostingAll();
-			Menu.printPostingMenu();
+			printPostingMenu();
 
 			int menu = Input.getNumber("글 메뉴");
 
 			switch (menu) {
-				case Menu.VIEW_POSTING:
+				case VIEW_POSTING:
 					viewPosting();
 					break;
-				case Menu.ADD_POSTING:
+				case ADD_POSTING:
 					addPosting();
 					break;
-				case Menu.GO_BACK:
+				case GO_BACK:
 					return;
 			}
 		}
@@ -264,7 +264,7 @@ public class SystemManager {
 		
 		while (true) {
 			board.viewPosting(index);
-			Menu.printPostingEditMenu();
+			printPostingEditMenu();
 			
 			if (runPostingEditMenu(posting))
 				return;
@@ -275,13 +275,13 @@ public class SystemManager {
 		int menu = Input.getNumber("글 수정 메뉴");
 		
 		switch (menu) {
-			case Menu.EDIT_POSTING:
+			case EDIT_POSTING:
 				editPosting(posting);
 				return true;
-			case Menu.DELETE_POSTING:
+			case DELETE_POSTING:
 				deletePosting(posting);
 				return true;
-			case Menu.GO_BACK:
+			case GO_BACK:
 				return true;
 			default:
 				return false;
