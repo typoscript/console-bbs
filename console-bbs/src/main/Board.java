@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Board {
 	private static Board instance = new Board();
@@ -14,6 +15,10 @@ public class Board {
 	
 	public Posting getPosting(int index) {
 		return postings.get(index).clone();
+	}
+	
+	public List<Posting> getPostings() {
+		return postings;
 	}
 	
 	public void viewPosting(int index) {
