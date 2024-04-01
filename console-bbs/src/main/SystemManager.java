@@ -327,6 +327,8 @@ public class SystemManager {
 		board.setPosting(posting);
 		
 		System.out.println("글 수정 성공");
+
+		saveBoardToFile();
 	}
 	
 	private boolean canModifyPosting(Posting posting) {
