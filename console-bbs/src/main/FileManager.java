@@ -49,4 +49,12 @@ public class FileManager {
 	public static void saveBoardDataToFile(String data) {
 		saveDataToFile(BOARD_FILE_NAME, data);
 	}
+
+	public static String getUserDataFromFile() {
+		return getDataFromFile(USER_FILE_NAME);
+	}
+	
+	public static String getBoardDataFromFile() {
+		return getDataFromFile(BOARD_FILE_NAME);
+	}
 }
