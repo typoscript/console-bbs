@@ -177,6 +177,8 @@ public class SystemManager {
 		
 		userManager.addUser(new User(id, password));
 		System.out.println("회원가입 성공");
+
+		saveUsersToFile();
 	}
 
 	private boolean deleteUser() {
