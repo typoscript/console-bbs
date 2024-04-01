@@ -49,7 +49,7 @@ public class SystemManager {
 		User user = userManager.getUser(loggedInUserId);
 				
 		if (user instanceof Admin)
-			runMainMenuForAdmin();
+			runAdminMainMenuForAdmin();
 		else 
 			runMainMenuForUser();
 	}
@@ -81,7 +81,7 @@ public class SystemManager {
 		
 	}
 	
-	private void runMainMenuForAdmin() {
+	private void runAdminMainMenu() {
 		boolean shouldExit = false;
 
 		while (!shouldExit) {
