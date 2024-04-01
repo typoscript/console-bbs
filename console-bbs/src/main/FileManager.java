@@ -5,9 +5,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 
 public class FileManager {
-	FileReader fr;
-	FileWriter fw;
-	BufferedReader br;
+	private static FileReader fr;
+	private static FileWriter fw;
+	private static BufferedReader br;
 	
 	private FileManager() { }
 }
