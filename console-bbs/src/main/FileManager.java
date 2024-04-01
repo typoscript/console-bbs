@@ -23,6 +23,25 @@ public class FileManager {
 		}
 	}
 
+	private static String getDataFromFile(String fileName) {
+		String data = "";
+
+		try {
+			fr = new FileReader(fileName);
+			br = new BufferedReader(fr);
+			
+			while (br.ready())
+				data += br.readLine() + "\n";
+			
+			br.close();
+			fr.close();
+		} catch (Exception e) {
+			System.out.println(fileName + " 파일 로드 실패");
+		}
+		
+		return data;
+	}
+
 	public static void saveUserDataToFile(String data) {
 		saveDataToFile(USER_FILE_NAME, data);
 	}
