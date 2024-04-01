@@ -18,6 +18,8 @@ public class SystemManager {
 	}
 	
 	public void run() {
+		loadBoardFromFile();
+		loadUsersFromFile();
 		while (isRunning) {
 			Menu.printStartMenu();
 			int menu = Input.getNumber("유저 메뉴");
@@ -341,7 +343,7 @@ public class SystemManager {
 		String data = FileManager.getUserDataFromFile();
 		String[] users = data.split("\n");
 		
-		for (String user: users) {
+		for (String user : users) {
 			String[] info = user.split("/");
 			
 			String id = info[0];
@@ -352,10 +354,10 @@ public class SystemManager {
 	}
 
 	private void loadBoardFromFile() {
-		String data = FileManager.getUserDataFromFile();
+		String data = FileManager.getBoardDataFromFile();
 		String[] postings = data.split("\n");
 		
-		for (String posting: postings) {
+		for (String posting : postings) {
 			String[] info = posting.split("/");
 			
 			long id = Long.parseLong(info[0]);
