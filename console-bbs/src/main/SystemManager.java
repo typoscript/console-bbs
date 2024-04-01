@@ -1,5 +1,7 @@
 package main;
 
+import java.util.List;
+
 public class SystemManager {
 	private String loggedInUserId = null;
 	private Board board;
@@ -319,6 +321,20 @@ public class SystemManager {
 		User user = userManager.getUser(loggedInUserId);
 
 		return userManager.isAdminUser(user) || posting.getUserId().equals(loggedInUserId);
+	}
+	
+	private void saveUsersToFile() {
+		String data = "";
+		List<User> users = userManager.getUsers();
+		
+		for (int i = 0; i < users.size(); i++) {
+			data += users.get(i).getId() + "/" + users.get(i).getPassword();
+			
+			if (i < users.size() - 1)
+				data += "\n";
+		}
+
+		FileManager.saveUserDataToFile(data);
 	}
 	
 	private void loadUsersFromFile() {
