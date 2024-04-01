@@ -23,8 +23,6 @@ public class Menu {
 	public static final int ADMIN_MANAGE_USER = 4;
 
 	public static final int ADMIN_VIEW_USER_ALL = 1;
-	
-	private Menu() { }
 
 	public static void printStartMenu() {
 		System.out.println("[1] 회원가입");
