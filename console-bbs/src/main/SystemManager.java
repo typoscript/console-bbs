@@ -216,8 +216,9 @@ public class SystemManager {
 		userManager.setUser(user);
 
 		System.out.println("유저 편집 성공");
-	}
 
+		saveUsersToFile();
+	}
 
 	private void loginUser() {
 		String id = Input.getString("아이디");
