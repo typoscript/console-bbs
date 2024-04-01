@@ -308,6 +308,8 @@ public class SystemManager {
 		board.deletePosting(posting);
 		
 		System.out.println("글 삭제 성공");
+
+		saveBoardToFile();
 	}
 	
 	private void editPosting(Posting posting) {
