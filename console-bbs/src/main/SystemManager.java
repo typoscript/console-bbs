@@ -334,4 +334,21 @@ public class SystemManager {
 			userManager.addUser(new User(id, password));
 		}
 	}
+
+	private void loadBoardFromFile() {
+		String data = FileManager.getUserDataFromFile();
+		String[] postings = data.split("\n");
+		
+		for (String posting: postings) {
+			String[] info = posting.split("/");
+			
+			long id = Long.parseLong(info[0]);
+			String userId = info[1];
+			String uploadDate = info[2];
+			String title = info[3];
+			String content = info[4];
+			
+			board.addPosting(new Posting(id, userId, uploadDate, title, content));
+		}
+	}
 }
