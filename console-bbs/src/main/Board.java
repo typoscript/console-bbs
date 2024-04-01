@@ -3,12 +3,12 @@ package main;
 import java.util.ArrayList;
 
 public class Board {
-	private Board instance = new Board();
+	private static Board instance = new Board();
 	private ArrayList<Posting> postings = new ArrayList<>();
 	
 	private Board() { }
 	
-	public Board getInstance() {
+	public static Board getInstance() {
 		return instance;
 	}
 	
