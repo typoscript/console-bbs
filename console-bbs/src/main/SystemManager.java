@@ -193,6 +193,8 @@ public class SystemManager {
 
 		System.out.println("회원탈퇴 성공");
 		loggedInUserId = null;
+		
+		saveUsersToFile();
 
 		return true;
 	}
