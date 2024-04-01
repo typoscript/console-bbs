@@ -13,6 +13,16 @@ public class FileManager {
 	
 	private FileManager() { }
 
+	private static void saveDataToFile(String fileName, String data) {
+		try {
+			fw = new FileWriter(fileName);
+			fw.write(data);
+			fw.close();
+		} catch (Exception e) {
+			System.out.println(fileName + " 파일 저장 실패");
+		}
+	}
+
 	public static void saveUserDataToFile(String data) {
 		saveDataToFile(USER_FILE_NAME, data);
 	}
