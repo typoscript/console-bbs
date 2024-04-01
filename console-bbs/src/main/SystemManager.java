@@ -20,6 +20,7 @@ public class SystemManager {
 	public void run() {
 		loadBoardFromFile();
 		loadUsersFromFile();
+
 		while (isRunning) {
 			Menu.printStartMenu();
 			int menu = Input.getNumber("유저 메뉴");
@@ -337,6 +338,26 @@ public class SystemManager {
 		}
 
 		FileManager.saveUserDataToFile(data);
+	}
+
+	private void saveBoardToFile() {
+		String data = "";
+		List<Posting> postings = board.getPostings();
+		
+		for (int i = 0; i < postings.size(); i++) {
+			Posting posting = postings.get(i);
+			
+			data += posting.getId() + "/" +
+					posting.getUserId() + "/" +
+					posting.getUploadDate() + "/" +
+					posting.getTitle() + "/" +
+					posting.getContent();
+			
+			if (i < postings.size() - 1)
+				data += "\n";
+		}
+
+		FileManager.saveBoardDataToFile(data);
 	}
 	
 	private void loadUsersFromFile() {
