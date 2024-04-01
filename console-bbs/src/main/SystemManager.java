@@ -295,6 +295,8 @@ public class SystemManager {
 		board.addPosting(new Posting(loggedInUserId, title, content));
 		
 		System.out.println("글 업로드 성공");
+		
+		saveBoardToFile();
 	}
 	
 	private void deletePosting(Posting posting) {
