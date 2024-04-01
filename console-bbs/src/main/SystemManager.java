@@ -341,6 +341,10 @@ public class SystemManager {
 	
 	private void loadUsersFromFile() {
 		String data = FileManager.getUserDataFromFile();
+
+		if (data.isEmpty())
+			return;
+
 		String[] users = data.split("\n");
 		
 		for (String user : users) {
@@ -355,6 +359,10 @@ public class SystemManager {
 
 	private void loadBoardFromFile() {
 		String data = FileManager.getBoardDataFromFile();
+		
+		if (data.isEmpty())
+			return;
+		
 		String[] postings = data.split("\n");
 		
 		for (String posting : postings) {
