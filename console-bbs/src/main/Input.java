@@ -9,7 +9,7 @@ public class Input {
 
 	public static String getString(String msg) {
 		System.out.print(msg + ": ");
-		return sc.next();
+		return sc.nextLine();
 	}
 
 	public static int getNumber(String msg) {
