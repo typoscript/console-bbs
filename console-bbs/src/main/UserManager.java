@@ -22,6 +22,18 @@ public class UserManager {
 	public User getUser(String id) {
 		return users.get(id).clone();
 	}
+	
+	public List<User> getUsers() {
+		List<User> users = new ArrayList<User>();
+
+		for (String id : this.users.keySet()) {
+			User user = getUser(id);
+			
+			users.add(user);
+		}
+		
+		return users;
+	}
 
 	public void setUser(User user) {
 		users.replace(user.getId(), user);
