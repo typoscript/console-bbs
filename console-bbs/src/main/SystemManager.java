@@ -320,4 +320,18 @@ public class SystemManager {
 
 		return userManager.isAdminUser(user) || posting.getUserId().equals(loggedInUserId);
 	}
+	
+	private void loadUsersFromFile() {
+		String data = FileManager.getUserDataFromFile();
+		String[] users = data.split("\n");
+		
+		for (String user: users) {
+			String[] info = user.split("/");
+			
+			String id = info[0];
+			String password = info[1];
+			
+			userManager.addUser(new User(id, password));
+		}
+	}
 }
