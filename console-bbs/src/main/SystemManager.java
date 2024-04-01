@@ -8,7 +8,7 @@ public class SystemManager {
 	private boolean isRunning;
 	
 	public SystemManager() {
-		board = new Board();
+		board = Board.getInstance();
 		userManager = UserManager.getInstance();
 		userManager.addUser(new Admin("admin", "1234"));
 		
