@@ -8,6 +8,10 @@ public class Board {
 	
 	private Board() { }
 	
+	public Board getInstance() {
+		return instance;
+	}
+	
 	public Posting getPosting(int index) {
 		return postings.get(index).clone();
 	}
