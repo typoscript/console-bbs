@@ -8,4 +8,6 @@ public class FileManager {
 	FileReader fr;
 	FileWriter fw;
 	BufferedReader br;
+	
+	private FileManager() { }
 }
