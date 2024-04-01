@@ -26,4 +26,8 @@ public class FileManager {
 	public static void saveUserDataToFile(String data) {
 		saveDataToFile(USER_FILE_NAME, data);
 	}
+
+	public static void saveBoardDataToFile(String data) {
+		saveDataToFile(BOARD_FILE_NAME, data);
+	}
 }
